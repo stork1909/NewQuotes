@@ -19,12 +19,12 @@ for cell in ws['A']:
 basis_set = set(basis_list)
 basis_set.discard(None)
 basis_set.discard('скидка от прайса 24000')
-basis_tuple = tuple(sorted(basis_set))
+basises_tuple = tuple(sorted(basis_set))
 
-for basis in basis_tuple:
+for basis in basises_tuple:
     print(basis)
 
-with open("samples/data.pkl", "wb") as f:
-    pickle.dump(basis_tuple, f)
+with open("samples/basises.pkl", "wb") as f:
+    pickle.dump(basises_tuple, f)
 
 
