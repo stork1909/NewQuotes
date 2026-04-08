@@ -1,4 +1,3 @@
-import pickle
 from openpyxl import load_workbook
 
 def create_entries():
