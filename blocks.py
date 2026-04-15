@@ -60,28 +60,31 @@ def create_bodies():
     blocks.append(entries)
     return blocks
 
-heads = create_heads()
-bodies = create_bodies()
+def create_blocs():
+    heads = create_heads()
+    bodies = create_bodies()
 
-blocks = []
-for i,body in enumerate(bodies,0):
-    block = []
-    for entry in body:
-        record = dict(zip(heads[i], entry))
-        block.append(record)
-    blocks.append(block)
+    blocks = []
+    for i,body in enumerate(bodies,0):
+        block = []
+        for entry in body:
+            record = dict(zip(heads[i], entry))
+            block.append(record)
+        blocks.append(block)
 
-for block in blocks:
-    print()
-    for entry in block:
-        print(entry)
+    return blocks
 
+def create_forms_data():
+    blocks = create_blocs()
+    forms = []
+    for block in blocks:
+        form_data = []
+        form_data.append(block[0]['производитель'])
+        form_data.append(block[0]['продукт'])
+        form_data.append(block[-1]['типоразмер'])
+        forms.append(form_data)
+    return forms
 
-
-#blocks = create_body()
-#for i, block in enumerate(blocks,1):
-#    print(f'{i}: {block}')
-
-#blocks = create_heads()
-#for i, block in enumerate(blocks,1):
-#    print(f'{i}: {block}')
+forms = create_forms_data()
+for form in forms:
+    print(form)
