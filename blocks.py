@@ -1,3 +1,4 @@
+import pickle
 from openpyxl import load_workbook
 
 #Выбор рабочего листа
@@ -88,3 +89,6 @@ def create_forms_data():
 forms = create_forms_data()
 for form in forms:
     print(form)
+
+with open("samples/forms_v2", "wb") as f:
+    pickle.dump(forms, f)
